@@ -66,4 +66,14 @@ CloudFrontDistribution:
 
 * La propiedad CustomOriginConfig especifica la configuración de origen personalizado. En este caso se especifican los puertos HTTP y HTTPS utilizados por el origen y se establece el protocolo de origen en https-only.
 
+* La propiedad Enabled especifica si la distribución está habilitada o no. En este caso, se establece en true para indicar que la distribución está habilitada.
+
+* La propiedad DefaultRootObject especifica el objeto raíz predeterminado que se entregará cuando un usuario visita la raíz del dominio de la distribución. En este caso, se establece en index.html, lo que significa que el archivo index.html será entregado cuando un usuario visita la raíz del dominio de la distribución.
+
+* La propiedad CustomErrorResponses especifica las respuestas de error personalizadas que se deben devolver para ciertos códigos de error HTTP. En este caso, se está especificando que si se devuelve un código de error 404, se debe devolver un código de respuesta 200 y se debe devolver la página /index.html.
+
+* La propiedad DefaultCacheBehavior especifica el comportamiento de la memoria caché predeterminado para la distribución. Dentro de esta propiedad se especifican los métodos HTTP permitidos, el origen al que se deben enviar las solicitudes, la configuración de los valores reenviados y la política de protocolo del espectador. En este caso se especifican los métodos permitidos (DELETE, GET, HEAD, OPTIONS, PATCH, POST, PUT) y se especifica el TargetOriginId como ReactApp, los valores reenviados no tienen queryString y no se envian cookies, y se establece la política de protocolo del espectador como redirect-to-https.
+
+* La propiedad ViewerCertificate especifica el certificado utilizado por la distribución para servir contenido HTTPS. En este caso, se está utilizando el certificado predeterminado de CloudFront.
+
 
