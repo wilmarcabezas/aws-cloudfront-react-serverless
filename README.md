@@ -14,6 +14,9 @@ Este repositorio contiene un ejemplo de cómo configurar una aplicación React u
 ## Lambda
 [AWS Lambda](https://aws.amazon.com/lambda/) es un servicio de computación en la nube que permite ejecutar código sin provisionar ni administrar servidores. Se utiliza para procesar eventos y automatizar tareas de back-end.
 
+## serverless.yml
+
+
 ```` yml
 
 CloudFrontDistribution:
@@ -54,8 +57,13 @@ CloudFrontDistribution:
 
 ````
 
+* La propiedad DistributionConfig especifica la configuración para la distribución. Dentro de esta propiedad se especifica la configuración del origen de los recursos de la aplicación. 
+* La propiedad Origins especifica una lista de orígenes de los recursos de la aplicación. En este caso, solo se especifica un origen. El origen se especifica mediante un objeto con las propiedades DomainName, Id y CustomOriginConfig.
 
+* La propiedad DomainName especifica el nombre de dominio del origen de los recursos. En este caso, se está utilizando una variable de entorno personalizada llamada self:custom.bucketName que se refiere al nombre del bucket S3 en el que se encuentran los recursos de la aplicación.
 
-Para ver el código y configuración detallada, visita el [código fuente](https://github.com/wilmarcabezas/aws-cloudfront-react-serverless) :computer:
+* La propiedad Id especifica un identificador único para el origen. En este caso se le ha asignado el nombre ReactApp.
+
+* La propiedad CustomOriginConfig especifica la configuración de origen personalizado. En este caso se especifican los puertos HTTP y HTTPS utilizados por el origen y se establece el protocolo de origen en https-only.
 
 
